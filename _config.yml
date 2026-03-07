@@ -1,0 +1,25 @@
+title: 高校スペイン語教師の会
+description: 高校でスペイン語を教える先生や、これから教師を目指す人のための情報を発信する公式サイトです。
+lang: ja
+timezone: Asia/Tokyo
+markdown: kramdown
+permalink: pretty
+collections:
+  events:
+    output: true
+    permalink: /events/:name/
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: events
+    values:
+      layout: page

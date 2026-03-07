@@ -1,0 +1,47 @@
+---
+layout: page
+title: イベント
+description: これからのイベントと過去のイベントを掲載します。
+eyebrow: Events
+permalink: /events/
+---
+
+{% assign today = site.time | date: '%Y-%m-%d' %}
+{% assign sorted_events = site.events | sort: 'event_date' %}
+
+<h2>これからのイベント</h2>
+<ul class="list-clean">
+  {% assign has_future = false %}
+  {% for event in sorted_events %}
+    {% if event.event_date >= today %}
+      {% assign has_future = true %}
+      <li class="card">
+        <p class="meta">{{ event.event_date | date: '%Y年%-m月%-d日' }} / {{ event.location }}</p>
+        <h3><a href="{{ event.url | relative_url }}">{{ event.title }}</a></h3>
+        <p>{{ event.summary }}</p>
+      </li>
+    {% endif %}
+  {% endfor %}
+  {% if has_future == false %}
+    <li class="notice-box">現在、掲載中の開催予定イベントはありません。</li>
+  {% endif %}
+</ul>
+
+<h2>過去のイベント</h2>
+<ul class="list-clean">
+  {% assign reversed_events = sorted_events | reverse %}
+  {% assign has_past = false %}
+  {% for event in reversed_events %}
+    {% if event.event_date < today %}
+      {% assign has_past = true %}
+      <li class="card">
+        <p class="meta">{{ event.event_date | date: '%Y年%-m月%-d日' }} / {{ event.location }}</p>
+        <h3><a href="{{ event.url | relative_url }}">{{ event.title }}</a></h3>
+        <p>{{ event.summary }}</p>
+      </li>
+    {% endif %}
+  {% endfor %}
+  {% if has_past == false %}
+    <li class="notice-box">まだ過去イベントは掲載されていません。</li>
+  {% endif %}
+</ul>

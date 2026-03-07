@@ -1,0 +1,17 @@
+---
+layout: page
+title: お知らせ
+description: 高校スペイン語教師の会からのお知らせを掲載します。
+eyebrow: News
+permalink: /news/
+---
+
+<ul class="list-clean">
+  {% for post in site.posts %}
+    <li class="card">
+      <p class="meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y年%-m月%-d日' }}</time></p>
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <p>{{ post.description }}</p>
+    </li>
+  {% endfor %}
+</ul>
