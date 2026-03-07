@@ -13,7 +13,8 @@ permalink: /events/
 <ul class="list-clean">
   {% assign has_future = false %}
   {% for event in sorted_events %}
-    {% if event.event_date >= today %}
+    {% assign event_date = event.event_date | date: '%Y-%m-%d' %}
+    {% if event_date >= today %}
       {% assign has_future = true %}
       <li class="card">
         <p class="meta">{{ event.event_date | date: '%Y年%-m月%-d日' }} / {{ event.location }}</p>
@@ -32,7 +33,8 @@ permalink: /events/
   {% assign reversed_events = sorted_events | reverse %}
   {% assign has_past = false %}
   {% for event in reversed_events %}
-    {% if event.event_date < today %}
+    {% assign event_date = event.event_date | date: '%Y-%m-%d' %}
+    {% if event_date < today %}
       {% assign has_past = true %}
       <li class="card">
         <p class="meta">{{ event.event_date | date: '%Y年%-m月%-d日' }} / {{ event.location }}</p>
