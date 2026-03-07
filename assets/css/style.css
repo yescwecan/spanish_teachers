@@ -81,6 +81,10 @@ img {
   padding: 1rem 0;
 }
 
+.brand-block {
+  min-width: 0;
+}
+
 .site-name {
   margin: 0;
   font-size: 1.2rem;
@@ -120,9 +124,13 @@ img {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.3fr 0.9fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
   align-items: center;
+}
+
+.hero-content {
+  max-width: 44rem;
 }
 
 .eyebrow {
@@ -169,6 +177,18 @@ img {
   color: var(--primary);
   border: 1px solid var(--border);
   box-shadow: none;
+}
+
+.text-link-button {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.text-link-button::after {
+  content: "→";
+  margin-left: 0.45rem;
 }
 
 .hero-card,
@@ -308,6 +328,7 @@ img {
   .header-inner {
     align-items: flex-start;
     flex-direction: column;
+    gap: 0.85rem;
   }
 
   .site-nav {
@@ -325,33 +346,52 @@ img {
   }
 
   .header-inner {
-    gap: 1rem;
+    gap: 0.65rem;
+  }
+
+  .site-name {
+    font-size: 1rem;
+  }
+
+  .site-tagline {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .site-nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .site-nav ul {
-    gap: 0.6rem;
+    flex-wrap: nowrap;
+    gap: 0.9rem;
     justify-content: flex-start;
-  }
-
-  .site-nav li {
-    flex: 1 1 calc(50% - 0.6rem);
+    min-width: max-content;
+    padding-bottom: 0.15rem;
   }
 
   .site-nav a {
     display: block;
-    padding: 0.7rem 0.85rem;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    text-align: center;
+    padding: 0.2rem 0;
+    white-space: nowrap;
+    font-size: 0.95rem;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav {
+    scrollbar-width: none;
   }
 
   .hero {
-    padding: 2.5rem 0 2rem;
+    padding: 2rem 0 1.5rem;
   }
 
   .section {
-    padding: 3rem 0;
+    padding: 2.4rem 0;
   }
 
   .page-hero {
@@ -367,19 +407,31 @@ img {
     font-size: 0.98rem;
   }
 
+  .hero h1 {
+    font-size: clamp(2.2rem, 9vw, 3rem);
+  }
+
   .card,
-  .hero-card,
   .notice-box,
   .callout {
     padding: 1.1rem;
   }
 
   .button-row {
+    align-items: flex-start;
     flex-direction: column;
-    align-items: stretch;
   }
 
   .button {
     text-align: center;
+    width: 100%;
+  }
+
+  .hero-actions {
+    gap: 1rem;
+  }
+
+  .text-link-button {
+    padding-left: 0.1rem;
   }
 }
