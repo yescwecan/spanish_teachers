@@ -4,6 +4,13 @@ lang: ja
 timezone: Asia/Tokyo
 markdown: kramdown
 permalink: pretty
+exclude:
+  - README.md
+  - docs/
+  - templates/
+  - spanish_teachers.code-workspace
+  - Gemfile
+  - Gemfile.lock
 collections:
   events:
     output: true
