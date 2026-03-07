@@ -309,11 +309,69 @@ img {
     align-items: flex-start;
     flex-direction: column;
   }
+
+  .site-nav {
+    width: 100%;
+  }
 }
 
 @media (max-width: 640px) {
+  body {
+    font-size: 15px;
+  }
+
+  .site-header {
+    position: static;
+  }
+
+  .header-inner {
+    gap: 1rem;
+  }
+
+  .site-nav ul {
+    gap: 0.6rem;
+    justify-content: flex-start;
+  }
+
+  .site-nav li {
+    flex: 1 1 calc(50% - 0.6rem);
+  }
+
+  .site-nav a {
+    display: block;
+    padding: 0.7rem 0.85rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-align: center;
+  }
+
   .hero {
-    padding-top: 3.5rem;
+    padding: 2.5rem 0 2rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .page-hero {
+    padding: 2.5rem 0 1rem;
+  }
+
+  .page-body {
+    padding-bottom: 3rem;
+  }
+
+  .lead,
+  .prose {
+    font-size: 0.98rem;
+  }
+
+  .card,
+  .hero-card,
+  .notice-box,
+  .callout {
+    padding: 1.1rem;
   }
 
   .button-row {
