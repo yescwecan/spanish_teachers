@@ -7,6 +7,7 @@ permalink: pretty
 exclude:
   - README.md
   - docs/
+  - internal/
   - templates/
   - spanish_teachers.code-workspace
   - Gemfile

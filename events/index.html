@@ -17,9 +17,9 @@ permalink: /events/
     {% if event_date >= today %}
       {% assign has_future = true %}
       <li class="card">
-        <p class="meta">{{ event.event_date | date: '%Y年%-m月%-d日' }} / {{ event.location }}</p>
+        <p class="meta">{{ event.event_date | default: event.date | date: '%Y年%-m月%-d日' }}{% if event.location %} / {{ event.location }}{% endif %}</p>
         <h3><a href="{{ event.url | relative_url }}">{{ event.title }}</a></h3>
-        <p>{{ event.summary }}</p>
+        <p>{{ event.summary | default: event.description | default: event.excerpt | strip_html }}</p>
       </li>
     {% endif %}
   {% endfor %}
@@ -37,9 +37,9 @@ permalink: /events/
     {% if event_date < today %}
       {% assign has_past = true %}
       <li class="card">
-        <p class="meta">{{ event.event_date | date: '%Y年%-m月%-d日' }} / {{ event.location }}</p>
+        <p class="meta">{{ event.event_date | default: event.date | date: '%Y年%-m月%-d日' }}{% if event.location %} / {{ event.location }}{% endif %}</p>
         <h3><a href="{{ event.url | relative_url }}">{{ event.title }}</a></h3>
-        <p>{{ event.summary }}</p>
+        <p>{{ event.summary | default: event.description | default: event.excerpt | strip_html }}</p>
       </li>
     {% endif %}
   {% endfor %}

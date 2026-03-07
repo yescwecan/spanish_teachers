@@ -11,7 +11,7 @@ permalink: /news/
     <li class="card">
       <p class="meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y年%-m月%-d日' }}</time></p>
       <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-      <p>{{ post.description }}</p>
+      <p>{{ post.description | default: post.excerpt | strip_html }}</p>
     </li>
   {% endfor %}
 </ul>
