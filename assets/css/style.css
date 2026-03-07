@@ -9,8 +9,21 @@
   --accent: #d97706;
   --border: #e5d6cb;
   --shadow: 0 10px 30px rgba(60, 25, 20, 0.08);
+  --shadow-hover: 0 16px 36px rgba(60, 25, 20, 0.14);
   --radius: 18px;
   --container: 1100px;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 * {
@@ -32,6 +45,7 @@ body {
 a {
   color: var(--primary);
   text-underline-offset: 0.15em;
+  transition: color 180ms ease, text-underline-offset 180ms ease;
 }
 
 a:hover,
@@ -71,6 +85,7 @@ img {
   top: 0;
   backdrop-filter: blur(8px);
   z-index: 20;
+  animation: fade-up 480ms ease both;
 }
 
 .header-inner {
@@ -115,6 +130,12 @@ img {
 .site-nav a {
   text-decoration: none;
   font-weight: 600;
+  transition: color 180ms ease, opacity 180ms ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  opacity: 0.8;
 }
 
 .hero {
@@ -131,6 +152,7 @@ img {
 
 .hero-content {
   max-width: 44rem;
+  animation: fade-up 620ms ease 120ms both;
 }
 
 .eyebrow {
@@ -170,6 +192,7 @@ img {
   text-decoration: none;
   font-weight: 700;
   box-shadow: var(--shadow);
+  transition: transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease, color 220ms ease;
 }
 
 .button.secondary {
@@ -184,11 +207,29 @@ img {
   align-items: center;
   font-weight: 700;
   text-decoration: none;
+  transition: transform 180ms ease, color 180ms ease;
 }
 
 .text-link-button::after {
   content: "→";
   margin-left: 0.45rem;
+  transition: transform 180ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.text-link-button:hover,
+.text-link-button:focus-visible {
+  transform: translateX(2px);
+}
+
+.text-link-button:hover::after,
+.text-link-button:focus-visible::after {
+  transform: translateX(2px);
 }
 
 .hero-card,
@@ -239,6 +280,14 @@ img {
 
 .card {
   padding: 1.4rem;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: #d7c3b7;
 }
 
 .card h3,
@@ -314,6 +363,71 @@ img {
 .footer-title {
   font-weight: 700;
   margin-top: 0;
+}
+
+.section-header,
+.page-hero .container,
+.page-body .prose,
+.notice-box,
+.callout,
+.footer-grid {
+  animation: fade-up 620ms ease both;
+}
+
+.section:nth-of-type(1) .section-header,
+.page-hero .container {
+  animation-delay: 180ms;
+}
+
+.section:nth-of-type(2) .section-header,
+.page-body .prose {
+  animation-delay: 240ms;
+}
+
+.section:nth-of-type(3) .section-header {
+  animation-delay: 300ms;
+}
+
+.section:nth-of-type(4) .section-header,
+.footer-grid {
+  animation-delay: 360ms;
+}
+
+.grid-3 > .card,
+.grid-2 > .card,
+.card-grid > .card,
+.grid-2 > .notice-box {
+  animation: fade-up 620ms ease both;
+}
+
+.grid-3 > .card:nth-child(1),
+.grid-2 > .card:nth-child(1),
+.card-grid > .card:nth-child(1) {
+  animation-delay: 260ms;
+}
+
+.grid-3 > .card:nth-child(2),
+.grid-2 > .card:nth-child(2),
+.card-grid > .card:nth-child(2) {
+  animation-delay: 340ms;
+}
+
+.grid-3 > .card:nth-child(3),
+.card-grid > .card:nth-child(3) {
+  animation-delay: 420ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 @media (max-width: 900px) {
