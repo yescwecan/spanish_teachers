@@ -2,6 +2,7 @@ spanish_teachers.code-workspace
 .github/prompts/
 .github/skills/
 .github/docs/
+README.md
 internal/
 docs/
 templates/
