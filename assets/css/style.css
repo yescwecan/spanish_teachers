@@ -10,6 +10,15 @@
   --border: #e5d6cb;
   --shadow: 0 10px 30px rgba(60, 25, 20, 0.08);
   --shadow-hover: 0 16px 36px rgba(60, 25, 20, 0.14);
+  --header-bg: rgba(255, 250, 247, 0.95);
+  --hero-bg: linear-gradient(135deg, #fff7f0 0%, #f8ede6 50%, #fffdf9 100%);
+  --hero-text: var(--text);
+  --hero-muted: var(--muted);
+  --hero-link: var(--primary);
+  --hero-border: rgba(255, 255, 255, 0.14);
+  --callout-bg: #fff8eb;
+  --footer-bg: #2c1a1e;
+  --footer-text: #f4ece7;
   --radius: 18px;
   --container: 1100px;
 }
@@ -79,7 +88,7 @@ img {
 }
 
 .site-header {
-  background: rgba(255, 250, 247, 0.95);
+  background: var(--header-bg);
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
@@ -140,7 +149,59 @@ img {
 
 .hero {
   padding: 5rem 0 3rem;
-  background: linear-gradient(135deg, #fff7f0 0%, #f8ede6 50%, #fffdf9 100%);
+  background: var(--hero-bg);
+}
+
+.hero-dark {
+  color: var(--hero-text);
+}
+
+.hero-dark .eyebrow,
+.hero-dark h1,
+.hero-dark a,
+.hero-dark .text-link-button {
+  color: var(--hero-text);
+}
+
+.hero-dark .lead {
+  color: var(--hero-muted);
+}
+
+.hero-dark .button {
+  background: #fff;
+  color: var(--primary-dark);
+}
+
+.hero-dark .text-link-button::after {
+  color: var(--hero-link);
+}
+
+.sample-banner {
+  padding: 0.85rem 0;
+  background: var(--surface-alt);
+  border-bottom: 1px solid var(--border);
+}
+
+.sample-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.sample-banner-label,
+.sample-banner-text {
+  margin: 0;
+}
+
+.sample-banner-label {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.sample-banner-text {
+  color: var(--muted);
 }
 
 .hero-grid {
@@ -287,7 +348,7 @@ img {
 .card:focus-within {
   transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
-  border-color: #d7c3b7;
+  border-color: var(--accent);
 }
 
 .card h3,
@@ -340,13 +401,13 @@ img {
 .callout {
   padding: 1.2rem 1.4rem;
   border-left: 5px solid var(--accent);
-  background: #fff8eb;
+  background: var(--callout-bg);
   border-radius: 12px;
 }
 
 .site-footer {
-  background: #2c1a1e;
-  color: #f4ece7;
+  background: var(--footer-bg);
+  color: var(--footer-text);
   padding: 2.5rem 0;
 }
 
@@ -514,6 +575,10 @@ img {
 
   .page-body {
     padding-bottom: 3rem;
+  }
+
+  .sample-banner-inner {
+    align-items: flex-start;
   }
 
   .lead,

@@ -9,8 +9,34 @@
     <meta property="og:site_name" content="{{ site.title }}">
     <meta property="og:title" content="{{ page.title | default: site.title }}">
     <meta property="og:description" content="{{ page.description | default: site.description }}">
-    <meta name="theme-color" content="#7b1f3a">
+    <meta name="theme-color" content="{{ page.theme_primary | default: '#7b1f3a' }}">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    {% if page.theme_bg %}
+    <style>
+      :root {
+        --bg: {{ page.theme_bg }};
+        --surface: {{ page.theme_surface }};
+        --surface-alt: {{ page.theme_surface_alt }};
+        --text: {{ page.theme_text }};
+        --muted: {{ page.theme_muted }};
+        --primary: {{ page.theme_primary }};
+        --primary-dark: {{ page.theme_primary_dark }};
+        --accent: {{ page.theme_accent }};
+        --border: {{ page.theme_border }};
+        --shadow: {{ page.theme_shadow }};
+        --shadow-hover: {{ page.theme_shadow_hover }};
+        --header-bg: {{ page.theme_header_bg }};
+        --hero-bg: {{ page.theme_hero_bg }};
+        --hero-text: {{ page.theme_hero_text }};
+        --hero-muted: {{ page.theme_hero_muted }};
+        --hero-link: {{ page.theme_hero_link }};
+        --hero-border: {{ page.theme_hero_border }};
+        --callout-bg: {{ page.theme_callout_bg }};
+        --footer-bg: {{ page.theme_footer_bg }};
+        --footer-text: {{ page.theme_footer_text }};
+      }
+    </style>
+    {% endif %}
   </head>
   <body>
     <a class="skip-link" href="#main-content">本文へ移動</a>
